@@ -68,6 +68,11 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: port
     ],
+    check_origin: [
+      "https://#{app_name}.fly.dev",
+      "https://undionline.com",
+      "https://www.undionline.com"
+      ],
     secret_key_base: secret_key_base
 
   # ## Using releases
