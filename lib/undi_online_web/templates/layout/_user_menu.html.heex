@@ -1,0 +1,20 @@
+
+<div class="p-4">
+    <div class="group relative">
+        <%= if @current_user do %>
+        <button class="bg-blue-500 text-gray-300 px-1 h-5 rounded"><%= @current_user.email %></button>
+        <nav tabindex="0" class="border bg-white invisible border-gray-800 rounded w-60 absolute left-0 top-full transition-all opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-1">
+            <ul class="py-1">
+                <li class="block px-4 py-2 hover:bg-gray-100">
+                  <%= link "Settings", to: Routes.user_settings_path(@conn, :edit) %>
+                </li>
+                <li class="block px-4 py-2 hover:bg-gray-100">
+                    <%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete %>
+                </li>
+                </ul>
+                </nav>
+        <% else %>
+            <button class="bg-blue-500 text-gray-300 px-1 h-5 rounded"><%= link "Log in", to: Routes.user_session_path(@conn, :new) %></button>
+        <% end %>
+    </div>
+</div>

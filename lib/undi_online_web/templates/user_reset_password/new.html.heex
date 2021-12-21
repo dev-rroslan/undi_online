@@ -1,0 +1,16 @@
+<h1>Forgot your password?</h1>
+
+<.form let={f} for={:user} action={Routes.user_reset_password_path(@conn, :create)}>
+  <div class="flex flex-col">
+  <%= label f, :email, class: "text-gray-400" %>
+  <%= email_input f, :email, required: true, class: "rounded border-gray-300 shadow-sm focus:ring-gray-900 focus:ring-opacity-50 focus:border-gray-900" %>
+  </div>
+  <div>
+    <%= submit "Send instructions to reset password", class: "btn btn-primary" %>
+  </div>
+</.form>
+
+<p>
+  <%= link "Register", to: Routes.user_registration_path(@conn, :new) %> |
+  <%= link "Log in", to: Routes.user_session_path(@conn, :new) %>
+</p>
